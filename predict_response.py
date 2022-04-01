@@ -1,4 +1,4 @@
-#Text Data Preprocessing Lib
+# Bibliotecas de preprocesamiento de datos de texto
 import nltk
 
 import json
@@ -8,13 +8,13 @@ import random
 
 ignore_words = ['?', '!',',','.', "'s", "'m"]
 
-# Model Load Lib
+# Cargar la biblioteca para el módelo
 import tensorflow
 from data_preprocessing import get_stem_words
 
 model = tensorflow.keras.models.load_model('./chatbot_model.h5')
 
-# Load data files
+# Cargar los archivos de datos
 intents = json.loads(open('./intents.json').read())
 words = pickle.load(open('./words.pkl','rb'))
 classes = pickle.load(open('./classes.pkl','rb'))
@@ -29,7 +29,7 @@ def preprocess_user_input(user_input):
     bag=[]
     bag_of_words = []
    
-    # Input data encoding 
+    # Codificación de los datos de entrada
     for word in words:            
         if word in input_word_token_2:              
             bag_of_words.append(1)
@@ -57,6 +57,7 @@ def bot_response(user_input):
         bot_response = random.choice(intent['responses'])
         return bot_response
 
+# Nota: Las siguientes oraciones se mantienen en inglés para preservar la uniformidad del chatbot
 print("Hi I am Stella, How Can I help you?")
 
 while True:
