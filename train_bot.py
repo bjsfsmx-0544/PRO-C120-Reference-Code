@@ -1,4 +1,4 @@
-# Biblioteca para el entrenamiento del módelo
+# Biblioteca para el entrenamiento del modelo
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout
 from tensorflow.keras.optimizers import Adam
@@ -13,17 +13,17 @@ def train_bot_model(train_x, train_y):
     model.add(Dropout(0.5))
     model.add(Dense(len(train_y[0]), activation='softmax'))
 
-    # Compilar el módelo
+    # Compilar el modelo
     model.compile(loss='categorical_crossentropy', 
                   optimizer='adam', metrics=['accuracy'])
 
-    # Ajustar y guardar el módelo
+    # Ajustar y guardar el modelo
     history = model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=True)
     model.save('chatbot_model.h5', history)
-    print("El archivo del módelo ha sido creado y guardado")
+    print("El archivo del modelo ha sido creado y guardado")
 
 
-# Llamando a los métodos para entrenar al módelo
+# Llamando a los métodos para entrenar al modelo
 train_x, train_y = preprocess_train_data()
 
 train_bot_model(train_x, train_y)
