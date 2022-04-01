@@ -8,7 +8,7 @@ import random
 
 ignore_words = ['?', '!',',','.', "'s", "'m"]
 
-# Cargar la biblioteca para el módelo
+# Cargar la biblioteca para el modelo
 import tensorflow
 from data_preprocessing import get_stem_words
 
